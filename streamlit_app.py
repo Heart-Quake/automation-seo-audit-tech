@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import importlib
 from datetime import datetime
 from io import BytesIO
 
@@ -16,7 +17,10 @@ from audit_engine import (
     analyze_seo_data,
     load_screaming_frog_csv,
 )
-from automation_seo_theme import apply_automation_seo_theme
+import automation_seo_theme
+
+automation_seo_theme = importlib.reload(automation_seo_theme)
+apply_automation_seo_theme = automation_seo_theme.apply_automation_seo_theme
 
 st.set_page_config(page_title="SEO Audit Automator", page_icon=":mag:", layout="wide")
 apply_automation_seo_theme()

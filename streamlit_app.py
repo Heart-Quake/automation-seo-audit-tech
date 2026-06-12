@@ -16,8 +16,10 @@ from audit_engine import (
     analyze_seo_data,
     load_screaming_frog_csv,
 )
+from automation_seo_theme import apply_automation_seo_theme
 
 st.set_page_config(page_title="SEO Audit Automator", page_icon=":mag:", layout="wide")
+apply_automation_seo_theme()
 
 LEVEL_COLORS = {
     "Faible": "#2E7D32",
@@ -303,4 +305,3 @@ if audit_results is not None:
             file_name=f"audit_seo_{datetime.now().strftime('%Y%m%d_%H%M')}.pptx",
             mime="application/vnd.openxmlformats-officedocument.presentationml.presentation",
         )
-
